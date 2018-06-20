@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+apply plugin: 'de.mobilej.unmock'
+
+android {
+    jacoco {
+        version = '0.7.5.201505241946'
+    }
+
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        multiDexEnabled true
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion versions.targetSdk
+
+        versionCode versions.versionCode
+        versionName versions.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled true
+        }
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests {
+            all {
+                jvmArgs '-noverify', '-Xmx4g', '-XX:MaxPermSize=2g'
+            }
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // SUPPORT LIBRARIES
+    implementation libraries.supportV4
+    implementation libraries.supportPercent
+    implementation libraries.supportAppCompatV7
+    implementation libraries.supportRecyclerV7
+    implementation libraries.supportCardViewV7
+    implementation libraries.supportAnnotations
+    implementation libraries.supportDesign
+    implementation libraries.supportFragment
+    implementation libraries.constraintLayout
+
+    implementation libraries.glide
+    annotationProcessor libraries.glideCompiler
+
+    // DAGGER
+    provided libraries.javaxAnnotations
+    annotationProcessor libraries.daggerCompiler
+    implementation libraries.dagger
+
+    // RxJava // RETROFIT
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+    implementation libraries.rxJavaAdapter
+    implementation libraries.retrofit
+    implementation libraries.logging
+    implementation libraries.scalarConverters
+
+    implementation libraries.iconics
+    implementation libraries.iconicsViews
+    implementation libraries.fontAwesomeTypeface
+
+    implementation libraries.eventBus
+
+    // OkHttp
+    implementation libraries.okHttp
+    implementation libraries.okio
+
+    // GSON
+    implementation libraries.gson
+    implementation libraries.gsonConverter
+}

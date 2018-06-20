@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title_text">#0076B7</color>
+
+    <color name="white_faded">#66FFFFFF</color>
+
+    <color name="colorBlackTransparent">#99000000</color>
+    <color name="colorSilver">#767676</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGreen">#328f2f</color>
+    <color name="colorDullGreen">#457044</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#636262</color>
+    <color name="colorBackground">#c7c1c1</color>
+
+    <color name="colorPrimary">#202121</color>
+    <color name="colorPrimaryDark">#1d1c1c</color>
+    <color name="colorAccent">@color/colorGreen</color>
+</resources>

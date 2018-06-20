@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="5dp"
+    android:foreground="?selectableItemBackground">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/padding_tiny"
+        tools:context=".home.view.HomeActivity">
+
+        <ImageView
+            android:id="@+id/img_collection"
+            android:layout_width="180dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="H,4:5.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/ic_vid_placeholder" />
+
+        <View
+            android:id="@+id/view_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorBlackTransparent"
+            app:layout_constraintBottom_toBottomOf="@+id/img_collection"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/txt_large"
+            app:layout_constraintLeft_toLeftOf="@+id/view_bg"
+            app:layout_constraintRight_toRightOf="@+id/view_bg"
+            app:layout_constraintTop_toBottomOf="@+id/view_bg"
+            tools:text="Murder on the Orient Express" />
+
+        <com.mikepenz.iconics.view.IconicsTextView
+            android:id="@+id/icon_font_views"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:gravity="right|center|center_vertical"
+            android:text="@string/icon_font_views"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txt_normal"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginTop="@dimen/padding_tiny"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:textSize="@dimen/txt_normal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title"
+            tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,56 @@
+apply plugin: 'jacoco'
+jacoco {
+    toolVersion = "0.7.5.201505241946"
+    reportsDir = file("$buildDir/reports/coverage")
+}
+def coverageSourceDirs = [
+        'src/main/java',
+]
+
+task jacocoTestReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
+    group = "CodeQuality"
+
+    description = "Generate Jacoco coverage reports"
+
+    classDirectories = fileTree(
+            dir: 'build/intermediates/classes/debug/com/xing/android/dhara',
+            excludes: ['android/**',
+                       '**/BuildConfig*',
+                       '**/R*.class',
+                       // Dagger
+                       '**/dagger/**',
+                       '**/dagger2/**',
+                       '**/di/**',
+                       '**/*_MembersInjector.class',
+                       '**/Dagger*Component*.class',
+                       '**/Dagger*Component$Builder.class',
+                       '**/*Module_*Factory.class',
+                       // View
+                       '**/*view*/**',
+                       '**/animation/**',
+                       '**/fragments/**',
+                       '**/widgets/**',
+                       '**/*Fragment*.class',
+                       '**/*Activity*.class',
+                       '**/*ItemDecoration*.class',
+                       '**/*ViewHolder*.class',
+                       // Api
+                       '**/api/**',
+                       '**/objects/**',
+                       '**/object/**',
+                       '**/*Constant*.class',
+            ]
+    )
+
+    additionalSourceDirs = files(coverageSourceDirs)
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files('build/jacoco/testDebugUnitTest.exec')
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+
+    println "report at " + project.buildDir + "/reports/tests/debug/index.html";
+
+}
