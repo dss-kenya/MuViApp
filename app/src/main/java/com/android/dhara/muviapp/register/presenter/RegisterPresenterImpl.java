@@ -36,8 +36,10 @@ public class RegisterPresenterImpl implements RegisterPresenter, ViewInteraction
 
     @Override
     public void onSignUpClicked() {
+        // FIXME: this can be can done better
         view.showProgress();
-        registerInteractor.register(view.getEmail(), view.getPassword(), this);
+        registerInteractor.register(view.getEmail(),
+                view.getPassword(), view.getFirstName(), view.getLastName(), this);
     }
 
     @Override

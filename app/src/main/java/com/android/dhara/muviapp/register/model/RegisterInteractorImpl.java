@@ -22,8 +22,9 @@ public class RegisterInteractorImpl implements RegisterInteractor {
     }
 
     @Override
-    public void register(final String email, final String password, final ResponseListener listener) {
-        dataSource.register(email, password, new Listener<String>() {
+    public void register(final String email, final String password,
+                         final String firstName, final String lastName, final ResponseListener listener) {
+        dataSource.register(email, password, firstName, lastName, new Listener<String>() {
             @Override
             public void onSuccess(final String response) {
                 listener.onSuccess();

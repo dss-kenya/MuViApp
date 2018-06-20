@@ -19,6 +19,8 @@ public class RegisterViewImpl implements RegisterView {
     private final AppCompatActivity activity;
     private EditText etEmail;
     private EditText etPassword;
+    private EditText etFirstName;
+    private EditText etLastName;
     private Button btnRegister;
     private View progressView;
     private ViewInteractionListener listener;
@@ -34,6 +36,8 @@ public class RegisterViewImpl implements RegisterView {
 
         this.listener = listener;
         progressView = activity.findViewById(R.id.lnr_progress_view);
+        etFirstName = activity.findViewById(R.id.et_first_name);
+        etLastName = activity.findViewById(R.id.et_last_name);
         etEmail = activity.findViewById(R.id.et_username);
         etPassword = activity.findViewById(R.id.et_password);
         btnRegister = activity.findViewById(R.id.btn_register);
@@ -43,6 +47,16 @@ public class RegisterViewImpl implements RegisterView {
 
             if (TextUtils.isEmpty(etEmail.getText().toString())) {
                 showMessage(activity.getString(R.string.error_email_cannot_be_empty));
+                return;
+            }
+
+            if (TextUtils.isEmpty(etFirstName.getText().toString())) {
+                showMessage(activity.getString(R.string.error_first_name_cannot_be_empty));
+                return;
+            }
+
+            if (TextUtils.isEmpty(etLastName.getText().toString())) {
+                showMessage(activity.getString(R.string.error_last_name_cannot_be_empty));
                 return;
             }
 
@@ -90,6 +104,16 @@ public class RegisterViewImpl implements RegisterView {
     @Override
     public String getPassword() {
         return etPassword.getText().toString();
+    }
+
+    @Override
+    public String getFirstName() {
+        return etFirstName.getText().toString();
+    }
+
+    @Override
+    public String getLastName() {
+        return etLastName.getText().toString();
     }
 
     private void initToolbar() {

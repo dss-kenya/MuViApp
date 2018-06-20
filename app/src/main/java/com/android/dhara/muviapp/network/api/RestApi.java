@@ -1,5 +1,7 @@
 package com.android.dhara.muviapp.network.api;
 
+import android.support.annotation.ColorRes;
+
 import com.android.dhara.muviapp.network.entity.CategoryResponse;
 import com.android.dhara.muviapp.network.entity.CollectionResponse;
 import com.android.dhara.muviapp.network.entity.LocationResponse;
@@ -26,7 +28,9 @@ public interface RestApi {
 
     @GET("/api/v1/users/")
     Call<ResponseBody> register(@Query(value = "email") String username,
-                                @Query(value = "password") String password);
+                                @Query(value = "password") String password,
+                                @Query(value = "first_name") String firstName,
+                                @Query(value = "last_name") String lastName);
 
     @FormUrlEncoded
     @POST("/oauth/token/")

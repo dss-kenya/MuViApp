@@ -6,9 +6,8 @@ This application is developed using **MVP-VIPER architecture (Clean architecture
     
     1. Display user profile and user location
     2. Allows login
-    3. Allows registration
-    4. Displays category listing for a logged in user
-    5. Displays the list of collections under a category
+    3. Displays category listing for a logged in user
+    4. Displays the list of collections under a category
     
 **How to install:**
 
@@ -34,4 +33,5 @@ This application is developed using **MVP-VIPER architecture (Clean architecture
        - this would eliminate the use of checking the error message and doing stuff based on it
     2. Can add support for landscape in a better way
     3. We can define whether the accessToken is valid or not based on its live value
+    4. Registration does not function completely
      

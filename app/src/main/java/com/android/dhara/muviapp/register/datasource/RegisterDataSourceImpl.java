@@ -1,11 +1,12 @@
 package com.android.dhara.muviapp.register.datasource;
 
-import android.util.Log;
-
 import com.android.dhara.muviapp.MuViApp;
 import com.android.dhara.muviapp.network.Listener;
 import com.android.dhara.muviapp.network.ServiceError;
 import com.android.dhara.muviapp.network.api.RestApi;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -25,19 +26,27 @@ public class RegisterDataSourceImpl implements RegisterDataSource {
     }
 
     @Override
-    public void register(final String email, final String password, final Listener<String> listener) {
+    public void register(final String email, final String password,
+                         final String firstName, final String lastName, final Listener<String> listener) {
         final Call<ResponseBody> callable = restApi.register(email,
-                password);
+                password, firstName, lastName);
 
         callable.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(final Call<ResponseBody> call, final Response<ResponseBody> response) {
                 try {
-                    Log.e("dhara", "response >>> " + response.body().string());
-
                     if (response.isSuccessful()) {
-                        Log.e("dhara", "response >>> " + response.body().string());
                         listener.onSuccess(response.body().string());
+                    } else {
+                        try {
+                            final String errorString = response.errorBody().string();
+                            final JSONObject jsonObject = new JSONObject(errorString);
+                            listener.onError(new ServiceError(jsonObject.optString("detail")));
+                        } catch (final IOException e) {
+                            e.printStackTrace();
+                        } catch (final JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -22,6 +22,8 @@
     <string name="error_username_cannot_be_empty">Username cannot be empty!</string>
     <string name="error_password_cannot_be_empty">Password cannot be empty!</string>
     <string name="error_email_cannot_be_empty">Email cannot be empty!</string>
+    <string name="error_first_name_cannot_be_empty">First Name cannot be empty!</string>
+    <string name="error_last_name_cannot_be_empty">Last Name cannot be empty!</string>
 
     <string name="icon_font_views">{faw-eye} %d</string>
 

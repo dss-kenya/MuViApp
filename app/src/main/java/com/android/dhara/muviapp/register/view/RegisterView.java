@@ -18,4 +18,8 @@ public interface RegisterView {
     String getEmail();
 
     String getPassword();
+
+    String getFirstName();
+
+    String getLastName();
 }
