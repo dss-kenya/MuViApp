@@ -1,6 +1,6 @@
 **MuViApp**
 
-This application is developed using **MVP-VIPER architecture (Clean architecture)**
+This application is developed using **MVP-VIPER architecture (Clean architecture), Android and Lambda**
 
 **Features of this application:**
     
@@ -26,6 +26,7 @@ This application is developed using **MVP-VIPER architecture (Clean architecture
     4. Dagger2 - for dependency injections
     5. Android Support libraries
     6. IconicsTextView - icon font text views
+    7. EventBus - to pass messages
     
 **Things that can be improved:**
 
