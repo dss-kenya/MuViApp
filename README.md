@@ -32,6 +32,6 @@ This application is developed using **MVP-VIPER architecture (Clean architecture
 
     1. Api calls that have errors do not respond with the same kind of object types 
        - this would eliminate the use of checking the error message and doing stuff based on it
-    2. Can add support for landscape mode
+    2. Can add support for landscape in a better way
     3. We can define whether the accessToken is valid or not based on its live value
      

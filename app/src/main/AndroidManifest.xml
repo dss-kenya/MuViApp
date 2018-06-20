@@ -13,15 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".login.view.LoginActivity"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.view.HomeActivity" />
+        <activity android:name=".home.view.HomeActivity"
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize" />
         <activity android:name=".register.view.RegistrationActivity"
             android:theme="@style/AppTheme"
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
             android:windowSoftInputMode="stateHidden"/>
     </application>
 </manifest>
